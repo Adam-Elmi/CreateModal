@@ -114,7 +114,7 @@ createModal({
     ],    
     
 });
-
+```
 ### How to give custom styles to overlay
 
 ```javascript
