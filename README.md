@@ -115,4 +115,17 @@ createModal({
     
 });
 
+### How to give custom styles to overlay
 
+```javascript
+createModal({
+    title: 'Custom Styles',
+    content: 'This is a custom modal with custom styles.',
+    actions: [
+        { text: 'Close', type: 'secondary', onClick: () => console.log('Closed') }
+    ],    
+    customStyles: {
+        overlay: 'background-color: rgba(0, 0, 0, 0.5) !important;'
+    }
+});
+```
