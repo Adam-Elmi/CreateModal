@@ -257,13 +257,24 @@ function createModal(
                 background-color: transparent !important;
             }
 
-            /* Custom styles with higher specificity */
-            .custom-modal .custom-modal-container[style],
-            .custom-modal .custom-modal-header[style],
-            .custom-modal .custom-modal-body[style],
-            .custom-modal .custom-modal-footer[style] {
-                background: none !important;
-                background-color: transparent !important;
+            /* Custom styles with lower specificity */
+            .custom-modal-overlay.custom-overlay {
+                ${customStyles.overlay || ''}
+            }
+            .custom-modal-container.custom-container {
+                ${customStyles.container || ''}
+            }
+            .custom-modal-header.custom-header {
+                ${customStyles.header || ''}
+            }
+            .custom-modal-body.custom-body {
+                ${customStyles.body || ''}
+            }
+            .custom-modal-footer.custom-footer {
+                ${customStyles.footer || ''}
+            }
+            .custom-modal-btn.custom-btn {
+                ${customStyles.btn || ''}
             }
         `;
 
@@ -276,23 +287,32 @@ function createModal(
         const modal = document.createElement('div');
         modal.className = `custom-modal custom-modal-${theme}`;
         modal.innerHTML = `
-            <div class="custom-modal-overlay" style="${customStyles.overlay || ''}"></div>
-            <div class="custom-modal-container" style="${customStyles.container || ''}">
-                <div class="custom-modal-header" style="${customStyles.header || ''}">
+            <div class="custom-modal-overlay"></div>
+            <div class="custom-modal-container">
+                <div class="custom-modal-header">
                     <h2>${title}</h2>
                     <button class="custom-modal-close">&times;</button>
                 </div>
-                <div class="custom-modal-body" style="${customStyles.body || ''}">
+                <div class="custom-modal-body">
                     <p>${content}</p>
                 </div>
-                <div class="custom-modal-footer" style="${customStyles.footer || ''}">
+                <div class="custom-modal-footer">
                     ${actions.map(action => `
                         <button class="custom-modal-btn custom-modal-btn-${action.type}" 
-                                style="${customStyles.btn || ''}${action.style ? action.style : ''}">${action.text}</button>
+                                style="${action.style ? action.style : ''}">${action.text}</button>
                     `).join('')}
                 </div>
             </div>
         `;
+
+        // Apply custom styles as classes instead of inline styles
+        if (customStyles.overlay) modal.querySelector('.custom-modal-overlay').className += ' custom-overlay';
+        if (customStyles.container) modal.querySelector('.custom-modal-container').className += ' custom-container';
+        if (customStyles.header) modal.querySelector('.custom-modal-header').className += ' custom-header';
+        if (customStyles.body) modal.querySelector('.custom-modal-body').className += ' custom-body';
+        if (customStyles.footer) modal.querySelector('.custom-modal-footer').className += ' custom-footer';
+        if (customStyles.btn) modal.querySelectorAll('.custom-modal-btn').forEach(btn => btn.className += ' custom-btn');
+
         return modal;
     }
 
