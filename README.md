@@ -1,7 +1,5 @@
 # CreateModal - Noble Tools
 
-# Easy Modal Maker
-
 This tool, one of Noble Tools, helps you create customizable modals for your website.
 
 ## How to Use
@@ -59,26 +57,6 @@ createModal({
         { text: 'Delete', type: 'primary', onClick: () => console.log('Deleted') }
     ],
     theme: 'dark'
-});
-```
-
-
-3. Modal with custom styles and events:
-
-```javascript
-createModal({
-    title: 'Subscribe',
-    content: 'Join our newsletter for updates!',
-    actions: [
-        { text: 'Subscribe', type: 'primary', onClick: () => console.log('Subscribed') }
-    ],
-    theme: 'light-blue',
-    onOpen: () => console.log('Modal opened'),
-    onClose: () => console.log('Modal closed'),
-    customStyles: {
-        header: 'background-color: #e0f7fa;',
-        body: 'font-size: 18px;'
-    }
 });
 ```
 
