@@ -116,7 +116,7 @@ createModal({
 });
 ```
 ### How to give custom styles to overlay
-
+- Use !important to override default styles
 ```javascript
 createModal({
     title: 'Custom Styles',
