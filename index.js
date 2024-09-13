@@ -3,9 +3,9 @@ function createModal(
         title = 'Modal Title',
         content = 'Modal Content',
         actions = [],
-        onClose = () => { },
-        onOpen = () => { },
-        onSubmit = () => { },
+        onClose = () => {},
+        onOpen = () => {},
+        onSubmit = () => {},
         theme = 'light',
         customStyles = {}
     }
