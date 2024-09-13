@@ -313,7 +313,9 @@ function createModal(
     onOpen();
 
     return {
-        modal,
+        header: modal.querySelector('.custom-modal-header'),
+        body: modal.querySelector('.custom-modal-body'),
+        footer: modal.querySelector('.custom-modal-footer'),
         close: closeModal,
         hide: hideModal,
         show: showModal
