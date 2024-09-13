@@ -1,5 +1,7 @@
 # CreateModal - Noble Tools
 
+# Easy Modal Maker
+
 This tool, one of Noble Tools, helps you create customizable modals for your website.
 
 ## How to Use
@@ -15,7 +17,7 @@ createModal({
     onClose: Function,
     onOpen: Function,
     onSubmit: Function,
-    customStyles: Object
+    customStyles: Object,
 });
 ```
 
@@ -80,6 +82,57 @@ createModal({
 });
 ```
 
+### How to use custom styles
+- Use !important to override default styles
+- Make theme 'none' to use custom styles
 
+```javascript
+createModal({
+    title: 'Custom Styles',
+    content: 'This is a custom modal with custom styles.',
+    actions: [
+        { text: 'Close', type: 'secondary', onClick: () => console.log('Closed') }
+    ],  
+    customStyles: {
+        header: 'background-color: #e0e0e0 !important;',
+        body: 'background-color: #ffffff !important;',
+        footer: 'background-color: #e0e0e0 !important;',
+    }
+});
+```
+
+### To use custom styles for buttons
+
+```javascript
+createModal({
+    title: 'Custom Styles',
+    content: 'This is a custom modal with custom styles.',
+    actions: [
+        { text: 'Close', type: 'secondary', onClick: () => console.log('Closed') }
+    ],    
+    customStyles: {
+        btn: 'background-color: red !important;'
+    }
+});
+```
+    or
+
+### Use style property to add custom styles to the buttons
+
+```javascript
+createModal({
+    title: 'Custom Styles',
+    content: 'This is a custom modal with custom styles.',
+    actions: [
+        { 
+            text: 'Close', 
+            type: 'secondary', 
+            onClick: () => console.log('Closed'),
+            style: 'background-color: red !important;'
+        },
+        
+    ],    
+    
+});
 
 
