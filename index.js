@@ -3,13 +3,13 @@ function createModal(
         title = 'Modal Title',
         content = 'Modal Content',
         actions = [],
-        onClose = () => {},
-        onOpen = () => {},
-        onSubmit = () => {},
+        onClose = () => { },
+        onOpen = () => { },
+        onSubmit = () => { },
         theme = 'light',
         customStyles = {}
     }
-) { 
+) {
     function addStyles() {
         const styles = `
             .custom-modal {
@@ -105,6 +105,10 @@ function createModal(
             }
 
             @keyframes modalOpen {
+                from {
+                    opacity: 0;
+                    transform: scale(0.9);
+                }
                 to {
                     opacity: 1;
                     transform: scale(1);
@@ -113,14 +117,14 @@ function createModal(
 
             /* Light theme (default) */
             .custom-modal-light .custom-modal-overlay {
-                background-color: rgba(0, 0, 0, 0.5);
+                background-color: rgba(0, 0, 0, 0.5) !important;
             }
             .custom-modal-light .custom-modal-container {
-                background: linear-gradient(135deg, #ffffff, #f0f0f0);
+                background: linear-gradient(135deg, #ffffff, #f0f0f0) !important;
             }
             .custom-modal-light .custom-modal-header {
-                background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-                border-bottom: 1px solid #e9ecef;
+                background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+                border-bottom: 1px solid #e9ecef !important;
             }
             .custom-modal-light .custom-modal-header h2 {
                 color: #343a40;
@@ -132,8 +136,8 @@ function createModal(
                 color: #495057;
             }
             .custom-modal-light .custom-modal-footer {
-                background: linear-gradient(135deg, #f8f9fa, #e9ecef);
-                border-top: 1px solid #e9ecef;
+                background: linear-gradient(135deg, #f8f9fa, #e9ecef) !important;
+                border-top: 1px solid #e9ecef !important;
             }
             .custom-modal-light .custom-modal-btn-primary {
                 background: linear-gradient(135deg, #007bff, #0056b3);
@@ -146,14 +150,14 @@ function createModal(
 
             /* Dark theme */
             .custom-modal-dark .custom-modal-overlay {
-                background-color: rgba(0, 0, 0, 0.7);
+                background-color: rgba(0, 0, 0, 0.7) !important;
             }
             .custom-modal-dark .custom-modal-container {
-                background: linear-gradient(135deg, #333333, #222222);
+                background: linear-gradient(135deg, #333333, #222222) !important;
             }
             .custom-modal-dark .custom-modal-header {
-                background: linear-gradient(135deg, #444444, #333333);
-                border-bottom: 1px solid #555555;
+                background: linear-gradient(135deg, #444444, #333333) !important;
+                border-bottom: 1px solid #555555 !important;
             }
             .custom-modal-dark .custom-modal-header h2 {
                 color: #ffffff;
@@ -165,8 +169,8 @@ function createModal(
                 color: #dddddd;
             }
             .custom-modal-dark .custom-modal-footer {
-                background: linear-gradient(135deg, #444444, #333333);
-                border-top: 1px solid #555555;
+                background: linear-gradient(135deg, #444444, #333333) !important;
+                border-top: 1px solid #555555 !important;
             }
             .custom-modal-dark .custom-modal-btn-primary {
                 background: linear-gradient(135deg, #0056b3, #003d80);
@@ -179,14 +183,14 @@ function createModal(
 
             /* Dark purple theme */
             .custom-modal-dark-purple .custom-modal-overlay {
-                background-color: rgba(0, 0, 0, 0.7);
+                background-color: rgba(0, 0, 0, 0.7) !important;
             }
             .custom-modal-dark-purple .custom-modal-container {
-                background: linear-gradient(135deg, #2c2c54, #1f1f3d);
+                background: linear-gradient(135deg, #2c2c54, #1f1f3d) !important;
             }
             .custom-modal-dark-purple .custom-modal-header {
-                background: linear-gradient(135deg, #474787, #3c3c73);
-                border-bottom: 1px solid #6c6c9c;
+                background: linear-gradient(135deg, #474787, #3c3c73) !important;
+                border-bottom: 1px solid #6c6c9c !important;
             }
             .custom-modal-dark-purple .custom-modal-header h2 {
                 color: #ffffff;
@@ -198,8 +202,8 @@ function createModal(
                 color: #dddddd;
             }
             .custom-modal-dark-purple .custom-modal-footer {
-                background: linear-gradient(135deg, #474787, #3c3c73);
-                border-top: 1px solid #6c6c9c;
+                background: linear-gradient(135deg, #474787, #3c3c73) !important;
+                border-top: 1px solid #6c6c9c !important;
             }
             .custom-modal-dark-purple .custom-modal-btn-primary {
                 background: linear-gradient(135deg, #9980FA, #7f66e6);
@@ -212,14 +216,14 @@ function createModal(
 
             /* Light blue theme */
             .custom-modal-light-blue .custom-modal-overlay {
-                background-color: rgba(0, 0, 0, 0.5);
+                background-color: rgba(0, 0, 0, 0.5) !important;
             }
             .custom-modal-light-blue .custom-modal-container {
-                background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+                background: linear-gradient(135deg, #e3f2fd, #bbdefb) !important;
             }
             .custom-modal-light-blue .custom-modal-header {
-                background: linear-gradient(135deg, #bbdefb, #90caf9);
-                border-bottom: 1px solid #90caf9;
+                background: linear-gradient(135deg, #bbdefb, #90caf9) !important;
+                border-bottom: 1px solid #90caf9 !important;
             }
             .custom-modal-light-blue .custom-modal-header h2 {
                 color: #1565c0;
@@ -231,8 +235,8 @@ function createModal(
                 color: #0d47a1;
             }
             .custom-modal-light-blue .custom-modal-footer {
-                background: linear-gradient(135deg, #bbdefb, #90caf9);
-                border-top: 1px solid #90caf9;
+                background: linear-gradient(135deg, #bbdefb, #90caf9) !important;
+                border-top: 1px solid #90caf9 !important;
             }
             .custom-modal-light-blue .custom-modal-btn-primary {
                 background: linear-gradient(135deg, #2196f3, #1976d2);
@@ -241,6 +245,25 @@ function createModal(
             .custom-modal-light-blue .custom-modal-btn-secondary {
                 background: linear-gradient(135deg, #64b5f6, #42a5f5);
                 color: #ffffff;
+            }
+
+            /* None theme */
+            .custom-modal-none .custom-modal-overlay,
+            .custom-modal-none .custom-modal-container,
+            .custom-modal-none .custom-modal-header,
+            .custom-modal-none .custom-modal-body,
+            .custom-modal-none .custom-modal-footer {
+                background: none !important;
+                background-color: transparent !important;
+            }
+
+            /* Custom styles with higher specificity */
+            .custom-modal .custom-modal-container[style],
+            .custom-modal .custom-modal-header[style],
+            .custom-modal .custom-modal-body[style],
+            .custom-modal .custom-modal-footer[style] {
+                background: none !important;
+                background-color: transparent !important;
             }
         `;
 
@@ -253,8 +276,8 @@ function createModal(
         const modal = document.createElement('div');
         modal.className = `custom-modal custom-modal-${theme}`;
         modal.innerHTML = `
-            <div class="custom-modal-overlay"></div>
-            <div class="custom-modal-container">
+            <div class="custom-modal-overlay" style="${customStyles.overlay || ''}"></div>
+            <div class="custom-modal-container" style="${customStyles.container || ''}">
                 <div class="custom-modal-header" style="${customStyles.header || ''}">
                     <h2>${title}</h2>
                     <button class="custom-modal-close">&times;</button>
@@ -263,7 +286,10 @@ function createModal(
                     <p>${content}</p>
                 </div>
                 <div class="custom-modal-footer" style="${customStyles.footer || ''}">
-                    ${actions.map(action => `<button class="custom-modal-btn custom-modal-btn-${action.type}" style="${customStyles.button || ''}">${action.text}</button>`).join('')}
+                    ${actions.map(action => `
+                        <button class="custom-modal-btn custom-modal-btn-${action.type}" 
+                                style="${customStyles.btn || ''}${action.style ? action.style : ''}">${action.text}</button>
+                    `).join('')}
                 </div>
             </div>
         `;
