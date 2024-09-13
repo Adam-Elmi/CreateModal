@@ -70,8 +70,10 @@ createModal({
     content: 'This is a custom modal with custom styles.',
     actions: [
         { text: 'Close', type: 'secondary', onClick: () => console.log('Closed') }
-    ],  
+    ],
+    theme: 'none',
     customStyles: {
+        container: 'background-color: #f0f0f0 !important;',
         header: 'background-color: #e0e0e0 !important;',
         body: 'background-color: #ffffff !important;',
         footer: 'background-color: #e0e0e0 !important;',
